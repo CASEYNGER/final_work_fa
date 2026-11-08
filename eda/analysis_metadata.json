@@ -1,0 +1,36 @@
+{
+  "source_sales_file": "processed/sales_bi_ready.csv",
+  "transactions": 17992,
+  "customers": 4882,
+  "date_range": [
+    "2022-01-01",
+    "2025-12-31"
+  ],
+  "revenue_basis": "Sales_Amount is recorded net sales per dictionary; realized subset uses analyst assumption Completed and Return_Flag != Yes",
+  "profit_basis": "Profit is recorded transaction profit per dictionary; no recomputation from Sales_Amount - Cost_Amount",
+  "dictionary_file": "sales_data_dictionary.csv",
+  "abc_thresholds": {
+    "A": 0.8,
+    "B": 0.95
+  },
+  "xyz": {
+    "metric": "monthly realized quantity",
+    "cv_ddof": 0,
+    "x_max": 0.3,
+    "y_max": 0.4,
+    "min_periods": 6,
+    "window": "first realized sale per item through dataset end; availability dates unavailable"
+  },
+  "rfm": {
+    "basis": "realized purchases only",
+    "frequency": "unique composite key (customer_id, order_id)",
+    "monetary": "sum net_sales",
+    "reference_date": "2026-01-01"
+  },
+  "limitations": [
+    "Dictionary does not specify official revenue-recognition timing",
+    "No SKU availability/stockout history",
+    "No customer service/fulfilment cost",
+    "Order_ID is reused across customers; analyses use customer_id + order_id composite key"
+  ]
+}

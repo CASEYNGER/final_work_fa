@@ -1,0 +1,29 @@
+{
+  "unique_order_ids_reused_across_customers": 3050,
+  "composite_customer_order_count": 17991,
+  "source_file": "Sales_transactions_2022_2025.csv",
+  "source_rows": 18045,
+  "rows_after_exact_deduplication": 18000,
+  "analysis_rows": 17992,
+  "exact_duplicates_removed": 45,
+  "invalid_quantity_rows": 8,
+  "analysis_excluded_rows": 8,
+  "customers_in_rfm": 4243,
+  "date_min": "2022-01-01",
+  "date_max": "2025-12-31",
+  "realized_rule": "order_status == 'completed' AND (return_flag != 'yes') AND order_status != 'cancelled'",
+  "realized_rows": 11349,
+  "recorded_sales_amount_all_analysis_rows": 8229473.04,
+  "net_sales": 5175010.17,
+  "net_profit": 1040355.97,
+  "sales_formula_mismatches_gt_0_02": 616,
+  "profit_formula_mismatches_gt_0_02": 110,
+  "dictionary_available": true,
+  "notes": [
+    "Dictionary defines Sales_Amount as recorded net sales and Profit as recorded transaction profit.",
+    "Dictionary describes Order_Status as operational status; Completed-only recognition remains an explicit analyst assumption.",
+    "Missing customer_age and customer_rating are retained; no row deletion or median imputation.",
+    "B2B Portal is separated from bulk-order quantity; other channels are not automatically labelled B2C.",
+    "Financial formula discrepancies are reported, not silently overwritten."
+  ]
+}
